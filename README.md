@@ -124,5 +124,15 @@ end
 *Stitch to flush the tunnel*
 
 ```bash
-
+config system automation-stitch
+    edit "Monitor Flush Stitch"
+        set trigger "IPsec Link Monitor"
+        config actions
+            edit 1 
+                set action "Flush Tunnel"
+                set required enable
+            next
+        end
+    next
+end
 ```
