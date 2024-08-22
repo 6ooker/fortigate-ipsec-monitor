@@ -6,7 +6,7 @@ This is useful for troubleshooting scenarios where IPsec tunnels have sudden com
 
 ## Link-Monitor 
 
-```bash
+```shell
 config system link-monitor
     edit "vpn_monitor"
         set srcintf "VPN_INTERFACE"
@@ -21,7 +21,7 @@ end
 
 ## Trigger
 
-```bash
+```shell
 config system automation-trigger
     edit "IPsec Link Monitor"
         set description "Link-Monitor triggers when status switches from alive -> dead"
@@ -52,7 +52,7 @@ The following are two options depending on use-case:
 
 Collect IKE debugs:
 
-```bash
+```shell
 config system automation-action
     edit "Get VPN debug"
         set action-type cli-script
@@ -70,7 +70,7 @@ end
 
 Send results via email:
 
-```bash
+```shell
 config system automation-action
     edit "IPsec Link-Monitor Notification"
         set description "Send the results of the previous CLI commands as mail"
@@ -86,7 +86,7 @@ end
 
 This will 'bounce' the tunnel (phase 1 & 2) to bring it down and up again.
 
-```bash
+```shell
 config system automation-action
     edit "Flush Tunnel"
         set action-type cli-script
@@ -102,7 +102,7 @@ Combine the trigger with the action(s) which suit your situation.
 
 *Stitch to collect IKE debugs and send via mail*
 
-```bash
+```shell
 config system automation-stitch
     edit "Monitor IPsec Stitch"
         set trigger "IPsec Link Monitor"
@@ -123,7 +123,7 @@ end
 
 *Stitch to flush the tunnel*
 
-```bash
+```shell
 config system automation-stitch
     edit "Monitor Flush Stitch"
         set trigger "IPsec Link Monitor"
