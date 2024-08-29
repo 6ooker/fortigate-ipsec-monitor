@@ -4,6 +4,13 @@ This repo contains the needed CLI commands to create a link-monitor for IPsec tu
 
 This is useful for troubleshooting scenarios where IPsec tunnels have sudden communication issues through a tunnel.
 
+## Diagram
+
+```mermaid
+graph TD;
+    A-->B;
+```
+
 ## Link-Monitor 
 
 ```shell
@@ -45,8 +52,8 @@ To only have this trigger regarding a specific link-monitor we filter for the ap
 
 The following are two options depending on use-case:
 
-[Option 1](#troubleshooting) for collecting IKE debugs and sending them via mail for troubleshooting purposes.
-[Option 2](#flush-tunnel) to flush the tunnel itself in order to 'bounce' it and momentarily resolve the issue.
+- [Option 1](#troubleshooting) for collecting IKE debugs and sending them via mail for troubleshooting purposes.
+- [Option 2](#flush-tunnel) to flush the tunnel itself in order to 'bounce' it and momentarily resolve the issue.
 
 ### Troubleshooting
 
