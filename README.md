@@ -4,13 +4,6 @@ This repo contains the needed CLI commands to create a link-monitor for IPsec tu
 
 This is useful for troubleshooting scenarios where IPsec tunnels have sudden communication issues through a tunnel.
 
-## Diagram
-
-```mermaid
-graph TD;
-    A-->B;
-```
-
 ## Link-Monitor 
 
 ```shell
@@ -44,9 +37,10 @@ config system automation-trigger
 end
 ```
 
-Referenced LogID [22932](https://docs.fortinet.com/document/fortigate/7.2.8/fortios-log-message-reference/22932) is the event 'LINK MONITOR STATUS WARNING' which emitted when the link-monitors' status switches from `alive` to `dead`.
-
 To only have this trigger regarding a specific link-monitor we filter for the appropriate `name` value in the event.
+
+> [!NOTE]
+> Referenced LogID [22932](https://docs.fortinet.com/document/fortigate/7.2.8/fortios-log-message-reference/22932) is the event 'LINK MONITOR STATUS WARNING' which is emitted when the link-monitors' status switches from `alive` to `dead`.
 
 ## Action
 
@@ -74,6 +68,9 @@ diagnose vpn ike crypto"
     next
 end
 ```
+
+> [!TIP]
+> I would advise creating a special profile for such commands with less privilege than _super_admin_.
 
 Send results via email:
 
